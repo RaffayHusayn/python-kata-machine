@@ -1,7 +1,7 @@
 import unittest
 import sys
-sys.path.append("/Users/raffay/algo/python-kata-machine/src")
-from ..src.BinarySearch import binary_search
+sys.path.append("/Users/raffay/algo/python-kata-machine")
+from src.BinarySearch import binary_search
 
 class TestBinarySearch(unittest.TestCase):
 

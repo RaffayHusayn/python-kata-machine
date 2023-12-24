@@ -63,7 +63,7 @@ from ..src.BinarySearch import binary_search
 And I try to run from the root of the package like:
 ```bash
 # bash script
-~/(python-kata-machine)  python -m tests.BinarySearch
+~/algo/(python-kata-machine)  python -m tests.BinarySearch
 ```
 
 This will throw an error saying:
@@ -76,9 +76,23 @@ python-kata-machine         (.. Takes you here) [..]
 ├── src
 │   ├── BinarySearch.py
 │   ├── __init__.py
-└── tests [.]
+└── tests           (. Keeps you in the same Directory) [.]
     ├── BinarySearch.py (You are HERE) 
     └── __init__.py 
 ```
+so to make this work, we can go back one directory which is essentially outside of our package and run this command
+```bash
+~/(algo)  python -m python-kata-machine.tests.BinarySearch
+```
+### Tip for Relative Imports
+1. You basically want to make sure that the number of dots in the relative import statement at the start are same or less than the depth of the package, sub package.
 
+- eg: `from ..src.BinarySearch` has 2 dots so the depth of where it is being called should have atleast 2 dots like:
+`python -m python-kata-machine.<dot#1>tests.<dot#2>BinarySearch`
+
+But obviously you can atmost go one level out of the package so 
+```bash
+# this is the most depth you can have
+python -m <package-root>.<sub-package-director>...
+```
 
