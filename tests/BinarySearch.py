@@ -16,5 +16,5 @@ class TestBinarySearch(unittest.TestCase):
         self.assertEqual(binary_search(self.haystack, 0), False)
 
 if __name__ == '__main__':
-    print("running the tests from a script not importing as a module")
+    print("running the tests by directly calling the file and running the code below to run the test cases")
     unittest.main()
