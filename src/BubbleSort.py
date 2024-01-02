@@ -14,4 +14,3 @@ def bubble_sort_real(unsorted_list: list[int]) -> list[int]:
             if unsorted_list[j+1] < unsorted_list[j]:
                 unsorted_list[j] , unsorted_list[j+1] = unsorted_list[j+1], unsorted_list[j]
     return unsorted_list
-
