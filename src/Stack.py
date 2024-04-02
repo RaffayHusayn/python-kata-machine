@@ -44,8 +44,5 @@ class Stack:
         current = self.head
         while current != None:
             all_nodes.append(current.value)
-            head_node = current.previous
+            current = current.previous
         return all_nodes 
-    
-
-

@@ -3,7 +3,7 @@ sys.path.append('/Users/raffay/algo/python-kata-machine')
 import unittest
 import random
 
-from src.Daily import quick_sort_1, quick_sort_2, bubble_sort, binary_search 
+from src.Daily import quick_sort_1, quick_sort_2, bubble_sort, binary_search, merge_sort, flatten
 
 class Daily(unittest.TestCase):
 
@@ -49,7 +49,33 @@ class Daily(unittest.TestCase):
         unsorted_list = self.create_random_list(1000)
         sorted_list = sorted(unsorted_list)
         message = "\n\n *************** Quick Sort Test (2) failed ***************** \n\n"
-        self.assertEqual(quick_sort_2(unsorted_list, 0, len(unsorted_list)-1), sorted_list, message)
+        self.assertEqual(quick_sort_2(unsorted_list, 0, len(unsorted_list)), sorted_list, message)
+
+    def test_merge_sort(self):
+        unsorted_list = self.create_random_list(1000)
+        unsorted_list_2 = []
+        unsorted_list_3 = [1,2,10,-11102,2,12,4,4112,0]
+        unsorted_list_4 = [-100,-2, -23 , -334]
+        sorted_list = sorted(unsorted_list)
+        sorted_list_2 = sorted(unsorted_list_2)
+        sorted_list_3 = sorted(unsorted_list_3)
+        sorted_list_4 = sorted(unsorted_list_4)
+        message = "\n\n *************** Merge Sort failed ***************** \n\n"
+        self.assertEqual(merge_sort(unsorted_list), sorted_list, message)
+        self.assertEqual(merge_sort(unsorted_list_2), sorted_list_2, message)
+        self.assertEqual(merge_sort(unsorted_list_3), sorted_list_3, message)
+        self.assertEqual(merge_sort(unsorted_list_4), sorted_list_4, message)
+
+    def test_flatten(self):
+        test_list_1=[1,2,[3,4,5,[6,[7,8]]]]
+        output_list_1 = [1,2,3,4,5,6,7,8]
+        test_list_2 = []
+        output_list_2 =[]
+        test_list_3 = [1]
+        output_list_3 =[1]
+        self.assertEqual(flatten(test_list_1), output_list_1)
+        self.assertEqual(flatten(test_list_2), output_list_2)
+        self.assertEqual(flatten(test_list_3), output_list_3)
 
 if __name__ == '__main__':
     # this allows me to run `python -m tests.Daily`
