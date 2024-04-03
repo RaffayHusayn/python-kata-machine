@@ -36,35 +36,29 @@ def create_binary_tree(input : List[int])-> Node|None:
 
     return root
 
-
+preorder_order= []
 def preorder(node:Node|None):
-    if node == None: return
+    if node == None: return []
 
-    print(node.val)
+    preorder_order.append(node.val)
     preorder(node.left)
     preorder(node.right)
+    return preorder_order
+
+inorder_order = []
 def inorder(node: Node|None):
-    if node == None : return 
+    if node == None : return []
 
     inorder(node.left)
-    print(node.val)
+    inorder_order.append(node.val)
     inorder(node.right)
+    return inorder_order
 
+postorder_order = []
 def postorder(node: Node| None):
-    if node == None : return  
+    if node == None : return []  
 
     postorder(node.left)
     postorder(node.right)
-    print(node.val)
-
-input_arr =[1,2,3,4,5,6,7]
-tree = create_binary_tree(input_arr)
-
-print('======= Preorder ========')
-preorder(tree)
-
-print('\n\n\n======= Preorder ========')
-inorder(tree)
-
-print('\n\n\n======= Preorder ========')
-postorder(tree)
+    postorder_order.append(node.val)
+    return postorder_order

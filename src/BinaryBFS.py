@@ -27,17 +27,19 @@ def create_binary_tree(input:List[int])->Node|None:
             queue.append(right_node)
     return root
 
-
 def bfs(root:Node|None):
-    if not root: return  
+    if not root: return []  
     queue = [root]
+    bfs_order = []
     while queue:
         new_node = queue.pop(0)
+        bfs_order.append(new_node.val)
         print(new_node.val)
         if new_node.left != None:
             queue.append(new_node.left)
         if new_node.right != None:
             queue.append(new_node.right)
+    return bfs_order
         
 input = [1,2,3,4,5,6,6,7]
 tree = create_binary_tree(input)
